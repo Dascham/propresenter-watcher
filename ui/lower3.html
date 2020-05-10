@@ -140,17 +140,20 @@
 					scaleText() {
 						// scale text to fit
 						let el = document.getElementById("text");
-						el.style.fontSize = "80px";
+						el.style.fontSize = "60px";
 
 						let l3 = document.getElementById("lower3");
 						let padding = 10;
 						let targetHeight = l3.offsetHeight - padding * 2;
 						var i = 80;
+						/*
 						while (el.offsetHeight > targetHeight) {
 							i--;
 							// console.log(i);
 							el.style.fontSize = `${i}px`;
 						}
+
+						 */
 					}
 				},
 				updated: function() {

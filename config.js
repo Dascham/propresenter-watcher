@@ -1,6 +1,6 @@
 const config = {
 	UI_SERVER_PORT: 7000,
-	LOWER3_IMAGE: "/lower3.jpg",
+	LOWER3_IMAGE: "/b.png",
 
 	// PROPRESENTER SETTINGS,
 	PRO6_HOST: "172.16.10.251:52086",

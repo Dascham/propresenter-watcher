@@ -8,7 +8,7 @@
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		/>
 		<title>ProPresenter Watcher Lower Third</title>
-
+		<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
 		<style media="screen">
 			html,
 			body {
@@ -27,8 +27,8 @@
 				position: relative;
 				height: 14vw;
 				box-sizing: border-box;
-				padding: 0px 22vw 0px 1vw; /* FOR LOGO ON RIGHT (SECOND ONE WINS)*/
-				padding: 0px 1vw 0px 22vw; /* FOR LOGO ON LEFT  (SECOND ONE WINS)*/
+				/* padding: 0px 22vw 0px 1vw; /* FOR LOGO ON RIGHT (SECOND ONE WINS)*/
+				/* padding: 0px 1vw 0px 22vw; /* FOR LOGO ON LEFT  (SECOND ONE WINS)*/
 				overflow: hidden;
 				box-sizing:border-box;
 			}
@@ -41,16 +41,19 @@
 				object-fit:cover;
 			}
 			#lower3 #text {
-				font-family: Verdana, Geneva, sans-serif;
-				font-weight: 800;
-				font-size: 60pt;
+				font-family: Muli;
+				font-weight: 600;
+				font-size: 40px;
 				text-shadow: 2px 2px 9px rgba(0, 0, 0, 1);
-				letter-spacing: -2px;
+				letter-spacing: 0px;
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
 				line-height: 1;
 				white-space: pre-line;
+				display: flex;
+  				justify-content: center;
+				text-align: center;
 			}
 			span.blank {
 				color: #bef7ff;
@@ -66,7 +69,7 @@
 	<body>
 		<div id="app" :class="">
 			<div id="lower3">
-				<img :src="image" alt="" />
+				<!-- <img :src="image" alt="" /> -->
 				<div id="text" v-html="html"></div>
 			</div>
 		</div>
@@ -83,8 +86,8 @@
 				el: "#app",
 				data: {
 					text: "",
-					html: "",
-					image: "b.png"
+					html: "This is line 1<br> This is line - different size 2<br> This is line 3<br> <br> This is line 5<br> This is line 6 - Test<br> This is line 7<br>",
+					image: "lower3.jpg"
 				},
 				computed: {},
 				methods: {
@@ -140,20 +143,19 @@
 					scaleText() {
 						// scale text to fit
 						let el = document.getElementById("text");
-						el.style.fontSize = "60px";
+						el.style.fontSize = "40px";
+						el.style.alignmentBaseline = "middle";
+						el.style.textAlign = "center";
 
-						let l3 = document.getElementById("lower3");
-						let padding = 10;
-						let targetHeight = l3.offsetHeight - padding * 2;
-						var i = 80;
-						/*
-						while (el.offsetHeight > targetHeight) {
-							i--;
-							// console.log(i);
-							el.style.fontSize = `${i}px`;
-						}
-
-						 */
+						//let l3 = document.getElementById("lower3");
+						//let padding = 10;
+						//let targetHeight = l3.offsetHeight - padding * 2;
+						//var i = 80;
+						//while (el.offsetHeight > targetHeight) {
+						//	i--;
+						//	// console.log(i);
+						//	el.style.fontSize = `${i}px`;
+						//}
 					}
 				},
 				updated: function() {
